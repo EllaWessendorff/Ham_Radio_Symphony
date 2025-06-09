@@ -1,0 +1,214 @@
+Last login: Mon Jun  2 16:44:18 on ttys017
+ellawessendorff@Ellas-Laptop ~ % ls /dev/tty.*
+/dev/tty.Bluetooth-Incoming-Port	/dev/tty.usbmodem101
+/dev/tty.BoseRevolveIISoundLink
+ellawessendorff@Ellas-Laptop ~ % cd Desktop/soapytest 
+ellawessendorff@Ellas-Laptop soapytest % sudo python soapytest.py
+Password:
+sudo: python: command not found
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py
+Traceback (most recent call last):
+  File "/Users/ellawessendorff/Desktop/soapytest/soapytest.py", line 3, in <module>
+    import serial
+ModuleNotFoundError: No module named 'serial'
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip install serial
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try brew install
+    xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a Python library that isn't in Homebrew,
+    use a virtual environment:
+    
+    python3 -m venv path/to/venv
+    source path/to/venv/bin/activate
+    python3 -m pip install xyz
+    
+    If you wish to install a Python application that isn't in Homebrew,
+    it may be easiest to use 'pipx install xyz', which will manage a
+    virtual environment for you. You can install pipx with
+    
+    brew install pipx
+    
+    You may restore the old behavior of pip by passing
+    the '--break-system-packages' flag to pip, or by adding
+    'break-system-packages = true' to your pip.conf file. The latter
+    will permanently disable this error.
+    
+    If you disable this error, we STRONGLY recommend that you additionally
+    pass the '--user' flag to pip, or set 'user = true' in your pip.conf
+    file. Failure to do this can result in a broken Homebrew installation.
+    
+    Read more about this behavior here: <https://peps.python.org/pep-0668/>
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip install serial --break-system-packages
+Collecting serial
+  Downloading serial-0.0.97-py2.py3-none-any.whl.metadata (889 bytes)
+Collecting future>=0.17.1 (from serial)
+  Using cached future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting pyyaml>=3.13 (from serial)
+  Using cached PyYAML-6.0.2-cp313-cp313-macosx_11_0_arm64.whl.metadata (2.1 kB)
+Collecting iso8601>=0.1.12 (from serial)
+  Downloading iso8601-2.1.0-py3-none-any.whl.metadata (3.7 kB)
+Downloading serial-0.0.97-py2.py3-none-any.whl (40 kB)
+Using cached future-1.0.0-py3-none-any.whl (491 kB)
+Downloading iso8601-2.1.0-py3-none-any.whl (7.5 kB)
+Using cached PyYAML-6.0.2-cp313-cp313-macosx_11_0_arm64.whl (171 kB)
+Installing collected packages: pyyaml, iso8601, future, serial
+Successfully installed future-1.0.0 iso8601-2.1.0 pyyaml-6.0.2 serial-0.0.97
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py                            
+Detected devices: ['driver=hackrf, serial=0000000000000000f75461dc272e4ac3, label=HackRF One #0 f75461dc272e4ac3']
+[INFO] Opening HackRF One #0 f75461dc272e4ac3...
+Sample rate 2560000.0 Hz is not supported, setting it to 3000000.0 Hz!
+Traceback (most recent call last):
+  File "/Users/ellawessendorff/Desktop/soapytest/soapytest.py", line 41, in <module>
+    ser = serial.Serial('/dev/tty.usbmodem101', 9600)
+          ^^^^^^^^^^^^^
+AttributeError: module 'serial' has no attribute 'Serial'
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py
+Detected devices: ['driver=hackrf, serial=0000000000000000f75461dc272e4ac3, label=HackRF One #0 f75461dc272e4ac3']
+[INFO] Opening HackRF One #0 f75461dc272e4ac3...
+Sample rate 2560000.0 Hz is not supported, setting it to 3000000.0 Hz!
+Traceback (most recent call last):
+  File "/Users/ellawessendorff/Desktop/soapytest/soapytest.py", line 41, in <module>
+    ser = serial.Serial('/dev/tty.usbmodem101', 9600)
+          ^^^^^^^^^^^^^
+AttributeError: module 'serial' has no attribute 'Serial'
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip install pyserial --break-system-packages
+Collecting pyserial
+  Using cached pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
+Using cached pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Installing collected packages: pyserial
+Successfully installed pyserial-3.5
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip uninstall serial
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try brew install
+    xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a Python library that isn't in Homebrew,
+    use a virtual environment:
+    
+    python3 -m venv path/to/venv
+    source path/to/venv/bin/activate
+    python3 -m pip install xyz
+    
+    If you wish to install a Python application that isn't in Homebrew,
+    it may be easiest to use 'pipx install xyz', which will manage a
+    virtual environment for you. You can install pipx with
+    
+    brew install pipx
+    
+    You may restore the old behavior of pip by passing
+    the '--break-system-packages' flag to pip, or by adding
+    'break-system-packages = true' to your pip.conf file. The latter
+    will permanently disable this error.
+    
+    If you disable this error, we STRONGLY recommend that you additionally
+    pass the '--user' flag to pip, or set 'user = true' in your pip.conf
+    file. Failure to do this can result in a broken Homebrew installation.
+    
+    Read more about this behavior here: <https://peps.python.org/pep-0668/>
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip uninstall serial --break-system-packages
+Found existing installation: serial 0.0.97
+Uninstalling serial-0.0.97:
+  Would remove:
+    /opt/homebrew/lib/python3.13/site-packages/serial-0.0.97.dist-info/*
+    /opt/homebrew/lib/python3.13/site-packages/serial/*
+  Would not remove (might be manually added):
+    /opt/homebrew/lib/python3.13/site-packages/serial/__main__.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/rfc2217.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/rs485.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/serialcli.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/serialjava.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/serialposix.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/serialutil.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/serialwin32.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/threaded/__init__.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/__init__.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/hexlify_codec.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/list_ports.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/list_ports_common.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/list_ports_linux.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/list_ports_osx.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/list_ports_posix.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/list_ports_windows.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/tools/miniterm.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/__init__.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_alt.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_cp2110.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_hwgrep.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_loop.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_rfc2217.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_socket.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/urlhandler/protocol_spy.py
+    /opt/homebrew/lib/python3.13/site-packages/serial/win32.py
+Proceed (Y/n)? y
+  Successfully uninstalled serial-0.0.97
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py                              
+Detected devices: ['driver=hackrf, serial=0000000000000000f75461dc272e4ac3, label=HackRF One #0 f75461dc272e4ac3']
+[INFO] Opening HackRF One #0 f75461dc272e4ac3...
+Sample rate 2560000.0 Hz is not supported, setting it to 3000000.0 Hz!
+Traceback (most recent call last):
+  File "/Users/ellawessendorff/Desktop/soapytest/soapytest.py", line 41, in <module>
+    ser = serial.Serial('/dev/tty.usbmodem101', 9600)
+          ^^^^^^^^^^^^^
+AttributeError: module 'serial' has no attribute 'Serial'
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip uninstall serial --break-system-packages
+WARNING: Skipping serial as it is not installed.
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip install pyserial --break-system-packages
+Requirement already satisfied: pyserial in /opt/homebrew/lib/python3.13/site-packages (3.5)
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py                              
+Detected devices: ['driver=hackrf, serial=0000000000000000f75461dc272e4ac3, label=HackRF One #0 f75461dc272e4ac3']
+[INFO] Opening HackRF One #0 f75461dc272e4ac3...
+Sample rate 2560000.0 Hz is not supported, setting it to 3000000.0 Hz!
+Traceback (most recent call last):
+  File "/Users/ellawessendorff/Desktop/soapytest/soapytest.py", line 41, in <module>
+    ser = serial.Serial('/dev/tty.usbmodem101', 9600)
+          ^^^^^^^^^^^^^
+AttributeError: module 'serial' has no attribute 'Serial'
+ellawessendorff@Ellas-Laptop soapytest % python3 -m pip install --upgrade --force-reinstall pyserial --break-system-packages 
+Collecting pyserial
+  Using cached pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
+Using cached pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Installing collected packages: pyserial
+  Attempting uninstall: pyserial
+    Found existing installation: pyserial 3.5
+    Uninstalling pyserial-3.5:
+      Successfully uninstalled pyserial-3.5
+Successfully installed pyserial-3.5
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py                                                          
+Detected devices: ['driver=hackrf, serial=0000000000000000f75461dc272e4ac3, label=HackRF One #0 f75461dc272e4ac3']
+[INFO] Opening HackRF One #0 f75461dc272e4ac3...
+Sample rate 2560000.0 Hz is not supported, setting it to 3000000.0 Hz!
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.13/site-packages/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+              ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/dev/tty.usbmodem101'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ellawessendorff/Desktop/soapytest/soapytest.py", line 41, in <module>
+    ser = serial.Serial('/dev/tty.usbmodem101', 9600)
+  File "/opt/homebrew/lib/python3.13/site-packages/serial/serialutil.py", line 244, in __init__
+    self.open()
+    ~~~~~~~~~^^
+  File "/opt/homebrew/lib/python3.13/site-packages/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/tty.usbmodem101: [Errno 2] No such file or directory: '/dev/tty.usbmodem101'
+ellawessendorff@Ellas-Laptop soapytest % sudo python3 soapytest.py
+Detected devices: ['driver=hackrf, serial=0000000000000000f75461dc272e4ac3, label=HackRF One #0 f75461dc272e4ac3']
+[INFO] Opening HackRF One #0 f75461dc272e4ac3...
+Sample rate 2560000.0 Hz is not supported, setting it to 3000000.0 Hz!
+ellawessendorff@Ellas-Laptop soapytest % 
